@@ -1,0 +1,59 @@
+<div class="modal-header">
+  <h5 class="modal-title">Novo Endereço</h5>
+</div>
+<div class="modal-body">
+
+  <div class="row">
+    <div class="col-md-5">
+      <label class="form-label">CEP:</label>
+      <input type="text" mask="00000-000" [(ngModel)]="endereco.cep" name="cep" class="form-control mb-3"
+        (blur)="buscarEnderecoPorCep()" />
+    </div>
+    <div class="col-md-7">
+      <label class="form-label">Bairro:</label>
+      <input type="text" pattern="[a-zA-Z]*" [(ngModel)]="endereco.bairro" class="form-control mb-3" name="bairro">
+    </div>
+  </div>
+  <div class="row mb-2">
+    <small style="float: inline-end; font-size: 11px;">* Digite o CEP para
+      fazer a busca automática</small>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <label class="form-label">Logradouro:</label>
+      <input type="text" pattern="[a-zA-Z]*" [(ngModel)]="endereco.logradouro" class="form-control mb-3"
+        name="logradouro">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <label class="form-label">Número:</label>
+      <input type="text" [(ngModel)]="endereco.numero" class="form-control mb-3" name="numero">
+    </div>
+
+    <div class="col-md-8">
+      <label class="form-label">Complemento:</label>
+      <input type="text" pattern="[a-zA-Z]*" [(ngModel)]="endereco.complemento" class="form-control mb-3"
+        name="complemento">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <label class="form-label">Cidade:</label>
+      <input type="text" pattern="[a-zA-Z]*" [(ngModel)]="endereco.localidade" class="form-control mb-3"
+        name="localidade">
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Estado:</label>
+      <input type="text" pattern="[a-zA-Z]*" [(ngModel)]="endereco.estado" class="form-control mb-3" name="estado">
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-secondary" (click)="bsModalRef.hide()">Cancelar</button>
+  <button class="btn btn-primary" (click)="salvar()">Salvar</button>
+</div>

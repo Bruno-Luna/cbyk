@@ -1,0 +1,14 @@
+
+.btn-close{
+    float: right;
+}
+
+.mensagem {
+  white-space: pre-line;
+}
+
+@media only screen and (max-width: 600px) {
+    .alert{
+        text-align: center;
+    }
+}

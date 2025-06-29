@@ -1,0 +1,25 @@
+<div class="content">
+    <div class="card mt-3">
+        <h3 class="card-header text-center mt-3">Excluir usuário</h3>
+    </div>
+    <div class="container-input d-flex flex-column mt-5">
+
+        <label class="form-label">Nome:</label>
+        <input type="text" [(ngModel)]="usuario.nome" class="form-control mb-3" name="nome" disabled>
+        
+        <label class="form-label">E-mail:</label>
+        <input type="text" [(ngModel)]="usuario.email" class="form-control mb-3" name="email" disabled>
+
+        <div class="btn">
+            <button class="btn btn-danger  fs-5 text-white" (click)='removeUsuario()'>
+                Excluir
+            </button>
+
+            <button class="btn btn-secondary fs-5 text-white" [routerLink]="['/usuario']">
+                Cancelar
+            </button>
+
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<table class="table table-hover m-3">
+    <thead>
+        <tr>
+            <th scope="col">Logradouro</th>
+            <th scope="col">Número</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Bairro</th>
+            <th scope="col">Complemento</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let endereco of enderecos">
+        <tr>
+            <td>{{ endereco.logradouro }}</td>
+            <td>{{ endereco.numero }}</td>
+            <td>{{ endereco.localidade }}</td>
+            <td>{{ endereco.estado }}</td>
+            <td>{{ endereco.bairro }}</td>
+            <td>{{ endereco.complemento }}</td>
+            <td>
+                <a (click)='deletarEndereco(endereco)' style="cursor: pointer;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/73/73806.png" title="Excluir endereço"
+                        height="21rem" class="ms-2" alt="">
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

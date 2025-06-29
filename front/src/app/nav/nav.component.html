@@ -1,0 +1,21 @@
+<div class="conteiner d-flex justify-content-start">
+  <div class="d-flex flex-column flex-shrink-0 p-3 bg-secondary content-nav">
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a routerLink="/home" class="mb-3 mb-md-0 me-md-auto text-decoration-none">
+            <span class="ms-3 text-white">Início</span>
+          </a>
+          <hr>
+        <li class="nav-item">
+          <a routerLink="/usuario" routerLinkActive="router-link"  class="nav-link text-white" aria-current="page">
+            Usuário(s)
+          </a>
+        </li>
+        <hr>
+      </ul>
+    </div>
+    <div class="home">
+      <router-outlet></router-outlet>
+    </div>
+</div>
+  

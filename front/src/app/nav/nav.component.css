@@ -1,0 +1,28 @@
+.bg-secondary{
+    opacity: .7;
+    
+}
+
+.home{
+    display: flex;
+}
+
+a > span, li > a{
+    font-weight: 500;
+}
+
+.content-nav{
+    width: 12%; 
+    height: 78vh;
+}
+
+@media only screen and (max-width: 600px) {
+    .content-nav{
+        width: 30%;
+        height: auto;
+        min-height: 78vh;
+    
+    }
+
+}
+

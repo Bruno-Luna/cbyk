@@ -1,0 +1,26 @@
+.card{
+    width: 88vw;
+    margin-left: .8rem;
+    margin-top: .8rem;
+    box-shadow: 2px 2px 5px hsl(0, 0%, 72%);
+}
+
+h3{
+    font-weight: 400;
+}
+
+p{ 
+    font-size: 1.1rem;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .card{
+        width: 58vw;
+    }
+
+    p{
+        font-size: 1rem;
+    }
+
+}

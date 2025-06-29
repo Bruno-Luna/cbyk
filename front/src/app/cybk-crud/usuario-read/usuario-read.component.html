@@ -1,0 +1,33 @@
+<table class="table table-hover m-3">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let usuario of usuarios">
+    <tr>
+      <td data-title="Nome:">{{ usuario.nome }}</td>
+      <td data-title="Email:">{{ usuario.email }}</td>
+      <td>
+        <a [routerLink]="['/usuario/update', usuario.id]">
+          <img src="https://cdn-icons-png.flaticon.com/512/84/84380.png" title="Editar usuário" height="21rem"
+            class="ms-2" alt="">
+        </a>
+        <a (click)='abrirModal(usuario)' style="cursor: pointer;">
+          <img src="https://cdn-icons-png.flaticon.com/128/447/447031.png" title="Adicionar endereço" height="21rem"
+            class="ms-2" alt="">
+        </a>
+        <a [routerLink]="['/usuario/endereco', usuario.id]">
+          <img src="https://cdn-icons-png.flaticon.com/128/709/709612.png" title="Visualizar endereço(s)" height="21rem"
+            class="ms-2" alt="">
+        </a>
+        <a [routerLink]="['/usuario/delete', usuario.id]">
+          <img src="https://cdn-icons-png.flaticon.com/512/73/73806.png" title="Excluir usuário" height="21rem"
+            class="ms-2" alt="">
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
