@@ -19,6 +19,10 @@ export class UsuarioReadComponent implements OnInit {
 
   usuarios: UsuarioModel[]
   modalRef?: BsModalRef;
+  page = 0;
+  size = 5;
+  totalPages = 0;
+  totalElements = 0;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -26,9 +30,7 @@ export class UsuarioReadComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.usuarioService.readUsuario().subscribe(usuario =>{
-      this.usuarios = usuario
-    })
+    this.carregarUsuarios();
   }
 
   abrirModal(usuario: UsuarioModel) {
@@ -38,6 +40,31 @@ export class UsuarioReadComponent implements OnInit {
       }
     });
   }
+
+  carregarUsuarios(): void {
+    this.usuarioService.listarUsuarios(this.page, this.size).subscribe(data => {
+      this.usuarios = data.content;
+      this.totalPages = data.totalPages;
+      this.totalElements = data.totalElements;
+
+    });
+  }
+
+  proximaPagina(): void {
+    if (this.page < this.totalPages - 1) {
+      this.page++;
+      this.carregarUsuarios();
+    }
+  }
+
+  paginaAnterior(): void {
+    if (this.page > 0) {
+      this.page--;
+      this.carregarUsuarios();
+    }
+  }
+
+
 
 
 }

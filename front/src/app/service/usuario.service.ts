@@ -12,23 +12,27 @@ export class UsuarioService {
     private http: HttpClient
   ) { }
 
-    postUsuario(usuario: UsuarioModel): Observable<UsuarioModel>{
-      return this.http.post<UsuarioModel>('http://localhost:8080/api/v1/usuario', usuario)
-    }
+  postUsuario(usuario: UsuarioModel): Observable<UsuarioModel> {
+    return this.http.post<UsuarioModel>('http://localhost:8080/api/v1/usuario', usuario)
+  }
 
-    readUsuario(): Observable<UsuarioModel[]>{
-      return this.http.get<UsuarioModel[]>('http://localhost:8080/api/v1/usuario/listartodos')
-    }
+  readUsuario(): Observable<UsuarioModel[]> {
+    return this.http.get<UsuarioModel[]>('http://localhost:8080/api/v1/usuario/listartodos')
+  }
 
-    findByIdUsuario(id: number): Observable<UsuarioModel>{
-      return this.http.get<UsuarioModel>(`http://localhost:8080/api/v1/usuario/id/${id}`)
-    }
+  listarUsuarios(page: number, size: number): Observable<any> {
+    return this.http.get(`http://localhost:8080/api/v1/usuario/listar?page=${page}&size=${size}`);
+  }
 
-    updateUsuario(usuario: UsuarioModel): Observable<UsuarioModel>{
-      return this.http.put<UsuarioModel>('http://localhost:8080/api/v1/usuario/atualizar', usuario)
-    }
+  findByIdUsuario(id: number): Observable<UsuarioModel> {
+    return this.http.get<UsuarioModel>(`http://localhost:8080/api/v1/usuario/id/${id}`)
+  }
 
-    deleteUsuario(id: number): Observable<UsuarioModel>{
-      return this.http.delete<UsuarioModel>(`http://localhost:8080/api/v1/usuario/${id}`)
-    }
+  updateUsuario(usuario: UsuarioModel): Observable<UsuarioModel> {
+    return this.http.put<UsuarioModel>('http://localhost:8080/api/v1/usuario/atualizar', usuario)
+  }
+
+  deleteUsuario(id: number): Observable<UsuarioModel> {
+    return this.http.delete<UsuarioModel>(`http://localhost:8080/api/v1/usuario/${id}`)
+  }
 }

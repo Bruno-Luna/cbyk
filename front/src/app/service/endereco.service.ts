@@ -24,8 +24,8 @@ export class EnderecoService {
     return this.http.get<EnderecoModel>(`https://viacep.com.br/ws/${cep}/json/`)
   }
 
-  listarEnderecoPorUsuarioId(id: string): Observable<EnderecoModel[]> {
-    return this.http.get<EnderecoModel[]>(`http://localhost:8080/api/v1/endereco/usuario/${id}`)
+  listarEnderecoPorUsuarioId(page: number, size: number, id: string): Observable<any> {
+    return this.http.get(`http://localhost:8080/api/v1/endereco/usuario/${id}?page=${page}&size=${size}`);
   }
-  
+
 }

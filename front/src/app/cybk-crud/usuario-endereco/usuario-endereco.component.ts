@@ -18,6 +18,10 @@ export class UsuarioEnderecoComponent implements OnInit {
 
   enderecos: EnderecoModel[] = []
   idUsuario: any
+  page = 0;
+  size = 5;
+  totalPages = 0;
+  totalElements = 0;
 
   constructor(
     private enderecoService: EnderecoService,
@@ -27,23 +31,41 @@ export class UsuarioEnderecoComponent implements OnInit {
 
   ngOnInit() {
     this.idUsuario = this.route.snapshot.params['id']
-    this.findByEnderecoIdUsuario(this.idUsuario)
+    this.carregarEnderecosPorUsuarioId();
   }
 
-  findByEnderecoIdUsuario(id: string) {
-    this.enderecoService.listarEnderecoPorUsuarioId(id).subscribe((resp: EnderecoModel[]) => {
-      this.enderecos = resp;
-    });
-  }
+
 
   deletarEndereco(endereco: EnderecoModel) {
     console.log("🚀 ~ UsuarioEnderecoComponent ~ deletarEndereco ~ id:", endereco.id);
     this.enderecoService.deleteEndereco(endereco.id).subscribe(() => {
-    this.alert.alertDanger('Endereço apagado!')
-    this.findByEnderecoIdUsuario(this.idUsuario)
+      this.alert.alertDanger('Endereço apagado!')
+      this.carregarEnderecosPorUsuarioId();
 
     })
 
+  }
+
+  carregarEnderecosPorUsuarioId(): void {
+    this.enderecoService.listarEnderecoPorUsuarioId(this.page, this.size, this.idUsuario).subscribe(data => {
+      this.enderecos = data.content;
+      this.totalPages = data.totalPages;
+      this.totalElements = data.totalElements;
+    });
+  }
+
+  proximaPagina(): void {
+    if (this.page < this.totalPages - 1) {
+      this.page++;
+      this.carregarEnderecosPorUsuarioId();
+    }
+  }
+
+  paginaAnterior(): void {
+    if (this.page > 0) {
+      this.page--;
+      this.carregarEnderecosPorUsuarioId();
+    }
   }
 
 }

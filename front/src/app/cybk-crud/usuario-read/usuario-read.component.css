@@ -1,10 +1,9 @@
-
-.table{
+.table {
     width: 88vw;
-    
+
 }
 
-table{
+table {
     text-align: center;
 
 }
@@ -14,26 +13,32 @@ table tbody tr {
 
 }
 
-table tbody tr td{
+table tbody tr td {
     position: relative;
 
 }
 
+.footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
 
 @media only screen and (max-width: 700px) {
 
-    .table{
+    .table {
         width: 58vw;
         margin-bottom: 1rem;
 
     }
 
-    table thead{
+    table thead {
         display: none;
-        
+
     }
 
-    table tbody{
+    table tbody {
         border: 1px solid hsl(0, 0%, 72%);
         box-shadow: 2px 2px 5px hsl(0, 0%, 72%);
 
@@ -45,14 +50,14 @@ table tbody tr td{
         font-size: .96rem;
 
     }
-    
-    table tbody tr td{
+
+    table tbody tr td {
         display: block;
         text-align: right;
         border-bottom: none;
     }
 
-    table tbody tr td:before{
+    table tbody tr td:before {
         content: attr(data-title);
         position: absolute;
         left: 5px;

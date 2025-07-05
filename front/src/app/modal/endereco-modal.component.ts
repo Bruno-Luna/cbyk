@@ -40,7 +40,7 @@ export class EnderecoModalComponent {
           this.alert.alertDanger('CEP não encontrado!')
           return;
         }
-        this.alert.alertSuccess('Endereço encontrado!')
+        this.alert.alertSuccess('CEP encontrado!')
       },
       error: (err) => {
       }
@@ -54,7 +54,7 @@ export class EnderecoModalComponent {
     this.enderecoService.postEndereco(this.endereco).subscribe((resp: EnderecoModel) => {
       this.endereco = resp
       this.alert.alertSuccess('Endereço registrado!')
-
+      this.endereco = new EnderecoModel();
     }, erro => {
       let errors = '';
       if (erro.error.errors.length > 0) {
