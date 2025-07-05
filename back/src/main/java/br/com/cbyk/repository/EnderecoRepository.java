@@ -1,6 +1,8 @@
 package br.com.cbyk.repository;
 
 import br.com.cbyk.model.EnderecoModel;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,4 +19,5 @@ import java.util.UUID;
 public interface EnderecoRepository extends JpaRepository<EnderecoModel, UUID> {
 
     public List<EnderecoModel> findByUsuarioId(UUID idusuario);
+    Page<EnderecoModel> findByUsuarioId(UUID usuarioId, Pageable pageable);
 }
