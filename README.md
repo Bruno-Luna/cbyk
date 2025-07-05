@@ -55,7 +55,6 @@ CREATE TABLE usuario (
 ```
 - id: Identificador único gerado automaticamente via gen_random_uuid()
 - email: Valor único com validação de formato padrão de e-mail
-- senha: Armazenamento seguro (criptografada pela aplicação)
 
 ```
 CREATE TABLE endereco (
@@ -82,13 +81,12 @@ CREATE TABLE endereco (
 - 🆔 Identificadores gerados via UUID
 - ✔️ Validações customizadas com mensagens específicas
 - 💾 Persistência com JPA + Hibernate
-- 🧱 Código estruturado conforme boas práticas e padrões de mercad
-
+- 🧱 Código estruturado conforme boas práticas e padrões de mercado
+- 📄 Paginação e ordenação em listagens
 
 ## 🚧 Pontos de Melhoria Sugeridos
 - 🔐 Implementar autenticação e autorização com JWT
 - 🧑‍💻 Telas de Login e Registro
-- 📄 Paginação e ordenação em listagens
 
 
 
